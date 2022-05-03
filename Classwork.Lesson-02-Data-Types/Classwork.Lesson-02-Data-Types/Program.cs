@@ -19,6 +19,8 @@ namespace Classwork.Lesson_02_Data_Types
 			//float newNumber = number_1 / 2;
 			//int money = second* first;
 
+
+
 			float x, y;
 			Console.Write("enter the value of x : ");
 			x = Convert.ToInt32(Console.ReadLine());
