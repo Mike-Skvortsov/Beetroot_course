@@ -4,7 +4,7 @@ namespace Classwork.Lesson03_Conditions
 {
 	class Program
 	{
-		static int Main()
+		static void Main()
 		{
 			//int a = 10;
 			//int b = 6;
@@ -49,27 +49,90 @@ namespace Classwork.Lesson03_Conditions
 			//{
 			//	sum += (n % 2 != 0) ? n++ : 0;
 			//}
-			var b = Console.ReadLine();
-			var a = Console.ReadLine();
-			var v = Console.ReadLine();
-			isNum = int.TryParse(b, out int digit1);
-			isNum = int.TryParse(a, out int digit2);
-			isNum = int.TryParse(v, out int symbol);
+			//var b = Console.ReadLine();
+			//var a = Console.ReadLine();
+			//var v = Console.ReadLine();
+			//int.TryParse(b, out int digit1);
+			//int.TryParse(a, out int digit2);
+			//int.TryParse(v, out int symbol);
 
-			switch (symbol)
+			//switch (symbol)
+			//{
+			//	case 1:
+			//		return digit1 + digit2;
+			//	case 2:
+			//		return digit1 - digit2;
+			//	case 3:
+			//		return digit1 * digit2;
+			//	case 4:
+			//		return digit1 / digit2;
+			//	default:
+			//		return 0;
+			//}
+
+
+			//						HOMEWORK
+
+			//Task 2
+			bool Validity;
+			string number;
+			Console.Write("Hi, enter your first number: ");
+			number = Console.ReadLine();
+			Validity = int.TryParse(number, out int X);
+			if (Validity == false)
 			{
-				case 1:
-					return digit1 + digit2;
-				case 2:
-					return digit1 - digit2;
-				case 3:
-					return digit1 * digit2;
-				case 4:
-					return digit1 / digit2;
-				default:
-					return 0;
+				Console.WriteLine("Invalid input");
+				return;
+			}
+			Console.Write("Hi, enter your second number: ");
+			number = Console.ReadLine();
+			Validity = int.TryParse(number, out int Y);
+			if (Validity == false)
+			{
+				Console.WriteLine("Invalid input");
+				return;
+			}
+			int sum = 0;
+			if (X == Y)
+			{
+				Console.WriteLine(X);
+				return;
+			}
+			if (X < Y)
+			{
+				for (int i = X; i <= Y; i++)
+				{
+					sum += i;
+				}
+			}
+			else if (Y < X)
+			{
+				for (int i = Y; i <= X; i++)
+				{
+					sum += i;
+				}
 			}
 
+			Console.Write(sum);
+			//Task 1
+			//const int a = 10;
+			//const int b = 13;
+			//if (a == b)
+			//{
+			//    Console.Write(a);
+			//    return;
+			//}
+			//for (int i = 0; i <= b; i++)
+			//{
+			//    sum += i;
+			//    if(a==i)
+			//    {
+			//        Console.Write(sum);
+			//        return;
+			//    }
+			//}
 		}
+
 	}
 }
+
