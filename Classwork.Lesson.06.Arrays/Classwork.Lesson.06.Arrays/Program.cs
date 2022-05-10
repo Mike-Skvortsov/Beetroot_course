@@ -12,15 +12,14 @@ namespace Classwork.Lesson._06.Arrays
 			arr1[0] = 1;
 			Print(arr);
 
-			int i = 0;
-			for (i = 0;  i < arr.Length; i++)
+			for (int i = 0;  i < arr.Length; i++)
 			{
 				arr[i] = i;
 			}
 
 			Print(arr);
 
-			for (i = 0; i < arr.Length; i++)
+			for (int i = 0; i < arr.Length; i++)
 			{
 				arr[i] = i * 2;
 			}
@@ -38,26 +37,142 @@ namespace Classwork.Lesson._06.Arrays
 			Print(randomArray);
 			Print(copiedArray);
 
-			SelectionSort(randomArray);
+			//SelectionSort(randomArray);
+			//BubbleSort(randomArray);
+			//InsertionSort(randomArray);
+			Sort(randomArray, SortAlgorithmType.BubbleSort, OrderBy.Desc);
 			Print(randomArray);
+
 		}
 
+		enum OrderBy
+		{
+			Asc,
+			Desc
+		}
+
+		enum SortAlgorithmType
+		{
+			SelectionSort,
+			BubbleSort,
+			InsertionSort
+		}
+
+		private static void Sort(int[] arr, SortAlgorithmType type, OrderBy order)
+		{
+			switch(type)
+			{
+				case SortAlgorithmType.BubbleSort:
+					{
+						BubbleSort(arr, order);
+					}
+					break;
+				case SortAlgorithmType.InsertionSort:
+					{
+						InsertionSort(arr, order);
+					}
+					break;
+				case SortAlgorithmType.SelectionSort:
+					{
+						SelectionSort(arr, order);
+					}
+					break;
+			}
+		}
+		
+
 		//Сортування Вибіркою(Selection)
-		private static void SelectionSort(int[] array)
+		private static void SelectionSort(int[] array, OrderBy order)
 		{
 			for (int i = 0; i < array.Length; i++)
 			{
 				int min = i;
 				for (int j = i+1; j < array.Length; j++)
 				{
-					if (array[j] < array[min])
+					switch(order)
 					{
-						min = j;
+						case OrderBy.Desc:
+							if (array[j] > array[min])
+							{
+								min = j;
+							}
+							break;
+						case OrderBy.Asc:
+							if (array[j] < array[min])
+							{
+								min = j;
+							}
+							break;
 					}
+
 				}
 				int temp = array[min];
 				array[min] = array[i];
 				array[i] = temp;
+			}
+		}
+
+										//Homework
+		//Вставка
+		// > спадання
+		private static void InsertionSort(int[] array, OrderBy order)
+		{
+			int j;
+			for (int i = 1; i < array.Length; i++)
+			{
+				int min = array[i];
+				j = i - 1;
+				switch (order)
+				{
+					case OrderBy.Asc:
+						while (j >= 0 && array[j] > min)
+						{
+							array[j + 1] = array[j];
+							j--;
+						}
+						array[j + 1] = min;
+						break;
+					case OrderBy.Desc:
+						while (j >= 0 && array[j] < min)
+						{
+							array[j + 1] = array[j];
+							j--;
+						}
+						array[j + 1] = min;
+						break;
+				}
+			}
+		}
+
+		//Бульбашкою
+		private static void BubbleSort(int[] array, OrderBy order)
+		{
+			for (int i = 0; i < array.Length; i++)
+			{
+				for (int j = 0; j < array.Length; j++)
+				{
+					switch (order)
+					{
+						case OrderBy.Asc:
+							if (array[i] < array[j])
+							{
+								int temp = array[j];
+								array[j] = array[i];
+								array[i] = temp;
+
+							}
+							break;
+						case OrderBy.Desc:
+							if (array[i] > array[j])
+							{
+								int temp = array[j];
+								array[j] = array[i];
+								array[i] = temp;
+
+							}
+							break;
+					}
+				}
 			}
 		}
 
