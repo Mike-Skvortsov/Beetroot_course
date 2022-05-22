@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.IO;
 using System.Text.RegularExpressions;
 
@@ -27,12 +28,11 @@ namespace Classwork.Lesson._08.Text
 			}
 
 			var PhoneBook = Deserialize(content);
-
-			var newRecord = (name: "Nick", number: 1212);
+			//var newRecord = (name: "Antoni", number: 110008);
 
 			//Add(ref PhoneBook, newRecord);
 			//Update(PhoneBook, newRecord, 4);
-			Delete(ref PhoneBook, 0);
+			//Delete(ref PhoneBook, 0);
 
 			//print Serialized data
 			var serializedBook = Serialize(PhoneBook);
@@ -42,11 +42,77 @@ namespace Classwork.Lesson._08.Text
 			}
 
 			File.WriteAllLines(filePath, serializedBook);
-		}
-		private static(string name, int number) Search ((string name,int number)[] content)
-		{
+			Sort(PhoneBook);
 
+			//Search(PhoneBook, "1212");
+			Console.WriteLine("_______________________________________");
+			foreach (var item in PhoneBook)
+			{
+				Console.WriteLine(item);
+			}
+			Console.WriteLine("_______________________________________");
+			var search = BinarySearch(PhoneBook, "An");
+			foreach (var item in search)
+			{
+				Console.WriteLine(item);
+			}
 		}
+
+		private static (string name, int number)[] BinarySearch((string name, int number)[] content, string search)
+		{
+			int l = 0;
+			int r = content.Length - 1;
+			int count = 0;
+			(string name, int number)[] newBook = new (string name, int number)[count];
+			while (l <= r)
+			{
+				int midle = l + (r - l) / 2;
+				if (content[midle].name.IndexOf(search) != -1)
+				{
+					Array.Resize(ref newBook, count + 1);
+					newBook[count] = content[midle];
+					count++;
+				}
+				if (String.Compare(search, content[midle].name) > 0)
+				{
+					l = midle + 1;
+				}
+				else
+				{
+					r = midle - 1;
+				}
+
+			}
+			return newBook;
+		}
+
+
+		private static (string name, int number)[] Sort((string name, int number)[] content)
+		{
+			for (int i = 0; i < content.Length; i++)
+			{
+				for (int j = 0; j < content.Length; j++)
+				{
+					if (String.Compare(content[i].name, content[j].name) < 0)
+					{
+						var temp = content[i];
+						content[i] = content[j];
+						content[j] = temp;
+					}
+					else if (String.Compare(content[i].name, content[j].name) == 0)
+					{
+						if (content[i].number > content[j].number)
+						{
+							var temp = content[i];
+							content[i] = content[j];
+							content[j] = temp;
+						}
+					}
+				}
+			}
+			return content;
+		}
+
 		//private static void Some(string str1) // передаємо копію посилання на кучу. робота з str1
 		//{
 
@@ -62,6 +128,7 @@ namespace Classwork.Lesson._08.Text
 			content.CopyTo(newBook, 0);
 			newBook[content.Length] = newItem;
 			content = newBook;
+			Sort(content);
 		}
 
 		private static void Update((string name, int number)[] content, (string name, int number) updatedItem, int index)
