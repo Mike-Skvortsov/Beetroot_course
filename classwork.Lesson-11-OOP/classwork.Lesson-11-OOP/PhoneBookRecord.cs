@@ -10,16 +10,14 @@ namespace classwork.Lesson_11_OOP
 	{
 		public Person Person;
 		public int Number;
-		 
 		public PhoneBookRecord(Person person, int number)
 		{
 			this.Person = person;
 			this.Number = number;
 		}
-
-		public string FullInfo()
+		public string FullInformation()
 		{
-			return $"{this.Person} with phone number {this.Number}";
+			return $"{this.Person.FullInfo()} with phone number {this.Number}";
 		}
 
 	}

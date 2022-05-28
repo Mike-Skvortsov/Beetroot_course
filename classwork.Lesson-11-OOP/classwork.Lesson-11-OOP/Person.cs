@@ -12,7 +12,6 @@ namespace classwork.Lesson_11_OOP
 		{
 
 		}
-
 		public static Person Create(string firstName, string lastName, int age)
 		{
 			Person person = new Person();
@@ -22,7 +21,6 @@ namespace classwork.Lesson_11_OOP
 
 			return person;
 		}
-
 		public string FirstName;
 		public string LastName;
 		public int Age;
