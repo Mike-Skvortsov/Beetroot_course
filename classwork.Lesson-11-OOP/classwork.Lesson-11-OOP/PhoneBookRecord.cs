@@ -8,18 +8,18 @@ namespace classwork.Lesson_11_OOP
 {
 	public class PhoneBookRecord
 	{
-		public Person Person;
-		public int Number;
+		private readonly Person _person;
+		private readonly int _number;
 		 
 		public PhoneBookRecord(Person person, int number)
 		{
-			this.Person = person;
-			this.Number = number;
+			this._person = person;
+			this._number = number;
 		}
 
 		public string FullInfo()
 		{
-			return $"{this.Person} with phone number {this.Number}";
+			return $"{this._person.FullInfo()} with phone number {this._number}";
 		}
 
 	}

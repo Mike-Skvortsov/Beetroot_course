@@ -9,7 +9,10 @@ namespace classwork.Lesson_11_OOP
 			Person person = new Person();
 			person.FirstName = "Misha";
 			person.LastName = "Skvortsov";
-			person.Age = 20;
+            person.PropAge = 30;
+
+
+			person.SetAge(20);
 
 			var anotherPerson = new Person("Andi", "Smith", 25);
 			var thirdPerson = Person.Create("Dima", "Olefir", 33);
@@ -19,6 +22,8 @@ namespace classwork.Lesson_11_OOP
                 FirstName = "Nick",
                 LastName = "Someone"
             };
+
+            fourthPerson.SetAge(30);
 
             Print(person);
             Print(anotherPerson);
@@ -35,7 +40,7 @@ namespace classwork.Lesson_11_OOP
             var phoneBook = new PhoneBook(records);
             foreach (var item in phoneBook.Records)
             {
-                Console.WriteLine(item.FullInfo());
+                Console.WriteLine(item.FullInfo);
             }
         }
 
