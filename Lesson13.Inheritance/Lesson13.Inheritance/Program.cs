@@ -80,111 +80,12 @@ namespace Lesson13.Inheritance
 
 
 			//Homework
-			//Array.Resize(ref newBook, count + 1);
 
 
-			var transmission = new Transmission("Mehanica", 14);
-			var engine = new Engine(7, 15, "Diesel", "Yamaha");
-
-			var Lamba = new Truck("Lamba", 2999, ConsoleColor.DarkBlue, 700, engine, transmission);
-			var Yaguar = new Car("Yaguar", 2359, ConsoleColor.White, 450, engine, transmission);
-			var autoService = new AutoService();
-			autoService.AddVehicles(Lamba);
-			autoService.AddVehicles(Yaguar);
-			foreach (var item in autoService.Vehicles)
-			{
-				Console.WriteLine(item.FullVehicle());
-			}
-
-		}
-	}
-	public class AutoService
-	{
-		public List<Vehicle> Vehicles { get; set; }
-		public AutoService()
-		{
-			this.Vehicles = new List<Vehicle>();
-		}
-
-		public void AddVehicles(Truck vehicle)
-		{
-			this.Vehicles.Add(vehicle);
-		}
-		public void AddVehicles(Car vehicle)
-		{
-			this.Vehicles.Add(vehicle);
-		}
-	}
-	public class Engine
-	{
-		public Engine(int cylindersCount, int capacity, string typeOfFuel, string brand)
-		{
-			this.CilindresCount = cylindersCount;
-			this.Capacity = capacity;
-			this.TypeOfFuel = typeOfFuel;
-			this.Brand = brand;
-
-		}
-		public int CilindresCount { get; set; }
-		public int Capacity { get; set; }
-		public string TypeOfFuel { get; set; }
-		public string Brand { get; set; }
-	}
-	public class Transmission
-	{
-		public Transmission(string type, int countGear)
-		{
-			this.Type = type;
-			this.CountGear = countGear;
-		}
-		public string Type { get; set; }
-		public int CountGear { get; set; }
-	}
-	public class Vehicle
-	{
+		
 
 
-		public Vehicle(string brandVehicle, int yearOfManufacture, ConsoleColor color, int maxSpeed, Engine engine, Transmission transmission)
-		{
-			this.BrandVehicle = brandVehicle;
-			this.YearOfManufacture = yearOfManufacture;
-			this.Color = color;
-			this.Engine = engine;
-			this.Transmission = transmission;
-			this.MaxSpeed = maxSpeed;
-		}
-		public Engine Engine { get; set; }
-		public Transmission Transmission { get; set; }
-		public string BrandVehicle { get; set; }
-		public int YearOfManufacture { get; set; }
-		public int MaxSpeed { get; set; }
-
-		public ConsoleColor Color { get; set; }
-		public string FullVehicle()
-		{
-			return $"Brand this vehicle is {this.BrandVehicle} it is released in {this.YearOfManufacture}, color is {this.Color}," +
-				$" max speed is {this.MaxSpeed} with engine {this.Engine.Brand} and transmission type is {this.Transmission.Type}";
-		}
-	}
-
-	public class Car : Vehicle
-	{
-		public Car(string brandVehicle, int yearOfManufacture, ConsoleColor color, int maxSpeed, Engine engine, Transmission transmission)
-		: base(brandVehicle, yearOfManufacture, color, maxSpeed, engine, transmission)
-		{
-		}
-
-	}
-	public class Truck : Vehicle
-	{
-		public Truck(string brandVehicle, int yearOfManufacture, ConsoleColor color, int maxSpeed, Engine engine, Transmission transmission)
-		: base(brandVehicle, yearOfManufacture, color, maxSpeed, engine, transmission)
-		{
-		}
-	}
-
-
-
+	//													End Homework
 
 	public abstract class Noise
 	{
