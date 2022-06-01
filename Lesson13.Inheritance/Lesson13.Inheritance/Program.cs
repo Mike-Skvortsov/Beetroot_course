@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Lesson13.Inheritance
 {
@@ -84,44 +86,35 @@ namespace Lesson13.Inheritance
 			var transmission = new Transmission("Mehanica", 14);
 			var engine = new Engine(7, 15, "Diesel", "Yamaha");
 
-
-			var vehicle = new Vehicle[]
-			{
-				new Truck("Yaguar", 2999, ConsoleColor.DarkBlue, 700, (new Engine(8, 10, "Diesel", "Yamaha")), new Transmission("Automaticaly", 4)),
-				new Car("Lambargini", 2023, ConsoleColor.DarkBlue, 550, engine, transmission),
-				new Car("Audi", 2000, ConsoleColor.Red, 220, engine, transmission)
-			};
-			var autoService = new AutoService(vehicle);
+			var Lamba = new Truck("Lamba", 2999, ConsoleColor.DarkBlue, 700, engine, transmission);
+			var Yaguar = new Car("Yaguar", 2359, ConsoleColor.White, 450, engine, transmission);
+			var autoService = new AutoService();
+			autoService.AddVehicles(Lamba);
+			autoService.AddVehicles(Yaguar);
 			foreach (var item in autoService.Vehicles)
 			{
 				Console.WriteLine(item.FullVehicle());
 			}
+
 		}
 	}
-
 	public class AutoService
 	{
-		private Car Car;
-
-		public Vehicle[] Vehicles { get; set; }
-		public AutoService(Vehicle[] vehicle)
+		public List<Vehicle> Vehicles { get; set; }
+		public AutoService()
 		{
-			this.Vehicles = vehicle;
+			this.Vehicles = new List<Vehicle>();
 		}
 
-
-		public AutoService(Car car)
+		public void AddVehicles(Truck vehicle)
 		{
-			this.Car = car;
+			this.Vehicles.Add(vehicle);
 		}
-		//public void AddVehicle(Vehicle vehicle)
-		//{
-		//	Array.Resize(ref this.Vehicles, this.Vehicles.Length + 1);
-		//}
-
+		public void AddVehicles(Car vehicle)
+		{
+			this.Vehicles.Add(vehicle);
+		}
 	}
-
-
 	public class Engine
 	{
 		public Engine(int cylindersCount, int capacity, string typeOfFuel, string brand)
@@ -147,11 +140,8 @@ namespace Lesson13.Inheritance
 		public string Type { get; set; }
 		public int CountGear { get; set; }
 	}
-
-
 	public class Vehicle
 	{
-
 
 
 		public Vehicle(string brandVehicle, int yearOfManufacture, ConsoleColor color, int maxSpeed, Engine engine, Transmission transmission)
@@ -192,15 +182,7 @@ namespace Lesson13.Inheritance
 		{
 		}
 	}
-	//public class MiniCar : Vehicle
-	//{
 
-	//}
-
-	//public class ToyCar : Vehicle
-	//{
-
-	//}
 
 
 
