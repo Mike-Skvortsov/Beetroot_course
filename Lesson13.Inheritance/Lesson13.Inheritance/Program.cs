@@ -76,8 +76,133 @@ namespace Lesson13.Inheritance
 			duck.MakeNoise();
 			duck1.MakeNoise();
 
+
+			//Homework
+			//Array.Resize(ref newBook, count + 1);
+
+
+			var transmission = new Transmission("Mehanica", 14);
+			var engine = new Engine(7, 15, "Diesel", "Yamaha");
+
+
+			var vehicle = new Vehicle[]
+			{
+				new Truck("Yaguar", 2999, ConsoleColor.DarkBlue, 700, (new Engine(8, 10, "Diesel", "Yamaha")), new Transmission("Automaticaly", 4)),
+				new Car("Lambargini", 2023, ConsoleColor.DarkBlue, 550, engine, transmission),
+				new Car("Audi", 2000, ConsoleColor.Red, 220, engine, transmission)
+			};
+			var autoService = new AutoService(vehicle);
+			foreach (var item in autoService.Vehicles)
+			{
+				Console.WriteLine(item.FullVehicle());
+			}
 		}
 	}
+
+	public class AutoService
+	{
+		private Car Car;
+
+		public Vehicle[] Vehicles { get; set; }
+		public AutoService(Vehicle[] vehicle)
+		{
+			this.Vehicles = vehicle;
+		}
+
+
+		public AutoService(Car car)
+		{
+			this.Car = car;
+		}
+		//public void AddVehicle(Vehicle vehicle)
+		//{
+		//	Array.Resize(ref this.Vehicles, this.Vehicles.Length + 1);
+		//}
+
+	}
+
+
+	public class Engine
+	{
+		public Engine(int cylindersCount, int capacity, string typeOfFuel, string brand)
+		{
+			this.CilindresCount = cylindersCount;
+			this.Capacity = capacity;
+			this.TypeOfFuel = typeOfFuel;
+			this.Brand = brand;
+
+		}
+		public int CilindresCount { get; set; }
+		public int Capacity { get; set; }
+		public string TypeOfFuel { get; set; }
+		public string Brand { get; set; }
+	}
+	public class Transmission
+	{
+		public Transmission(string type, int countGear)
+		{
+			this.Type = type;
+			this.CountGear = countGear;
+		}
+		public string Type { get; set; }
+		public int CountGear { get; set; }
+	}
+
+
+	public class Vehicle
+	{
+
+
+
+		public Vehicle(string brandVehicle, int yearOfManufacture, ConsoleColor color, int maxSpeed, Engine engine, Transmission transmission)
+		{
+			this.BrandVehicle = brandVehicle;
+			this.YearOfManufacture = yearOfManufacture;
+			this.Color = color;
+			this.Engine = engine;
+			this.Transmission = transmission;
+			this.MaxSpeed = maxSpeed;
+		}
+		public Engine Engine { get; set; }
+		public Transmission Transmission { get; set; }
+		public string BrandVehicle { get; set; }
+		public int YearOfManufacture { get; set; }
+		public int MaxSpeed { get; set; }
+
+		public ConsoleColor Color { get; set; }
+		public string FullVehicle()
+		{
+			return $"Brand this vehicle is {this.BrandVehicle} it is released in {this.YearOfManufacture}, color is {this.Color}," +
+				$" max speed is {this.MaxSpeed} with engine {this.Engine.Brand} and transmission type is {this.Transmission.Type}";
+		}
+	}
+
+	public class Car : Vehicle
+	{
+		public Car(string brandVehicle, int yearOfManufacture, ConsoleColor color, int maxSpeed, Engine engine, Transmission transmission)
+		: base(brandVehicle, yearOfManufacture, color, maxSpeed, engine, transmission)
+		{
+		}
+
+	}
+	public class Truck : Vehicle
+	{
+		public Truck(string brandVehicle, int yearOfManufacture, ConsoleColor color, int maxSpeed, Engine engine, Transmission transmission)
+		: base(brandVehicle, yearOfManufacture, color, maxSpeed, engine, transmission)
+		{
+		}
+	}
+	//public class MiniCar : Vehicle
+	//{
+
+	//}
+
+	//public class ToyCar : Vehicle
+	//{
+
+	//}
+
+
 
 	public abstract class Noise
 	{
@@ -161,7 +286,7 @@ namespace Lesson13.Inheritance
 			{
 				return false;
 			}
-			var animal = obj as Animal;
+			Animal animal = obj as Animal;
 			if (animal == null)
 			{
 				return false;
