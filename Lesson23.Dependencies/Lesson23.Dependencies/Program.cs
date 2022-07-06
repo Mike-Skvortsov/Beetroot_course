@@ -18,7 +18,7 @@ namespace Lesson23.Dependencies
 
         public static void Main(string[] args)
         {
-            var service = new RoomService();
+            var service = new RoomService(new FileDataAccess());
             //var rooms = service.GetAll();
 
             foreach (var item in args)
