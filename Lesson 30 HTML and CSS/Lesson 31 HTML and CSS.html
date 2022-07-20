@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>селектори CSS</title>
+    <style>
+      P:first-letter {
+        font-size: 200%;
+        color: red;
+      }
+
+      h1 {
+        text-align: right;
+        color: orange;
+      }
+
+      em {
+        background-color: green;
+        color: white;
+      }
+
+      #allotment::first-line {
+        color: orange;
+      }
+
+      #warehouse::first-line {
+        color: red;
+      }
+
+      .IT-lesson:first {
+        color: grey;
+      }
+
+      .another-lesson {
+        color: red;
+      }
+
+      #allotment .IT-lesson {
+        color: gray;
+      }
+
+      #warehouse .IT-lesson {
+        color: green;
+      }
+
+      .Lessons ul li {
+        font-weight: bold;
+      }
+
+      .Lessons ol li {
+        font-weight: 500;
+      }
+
+      .students-table thead tr {
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .students-table tbody td:first-child {
+        color: orange;
+        background: white;
+      }
+
+      .students-table tbody tr {
+        background: green;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Автобіографія</h1>
+    <p>
+      Мене звати Скворцов Михайло Олександрович. Народився <em>21.11.2002</em> в
+      місті Баранівка. Наразі навчаюся в
+      <a href="https://www.dut.edu.ua/"
+        ><u>Державному університеті телекомунікацій</u></a
+      >
+      у Києві. Він розташований за адресою <b>Солом'янська 7А</b>.
+    </p>
+    <div id="warehouse" class="Lessons">
+      <h2>Дисципліни</h2>
+      <ul>
+        <li>
+          IT предмети:
+          <ol class="IT-lesson">
+            <li>C++</li>
+            <li>C#</li>
+            <li>HTML</li>
+            <li>JS</li>
+          </ol>
+        </li>
+        <li>
+          Інші предмети:
+          <ol class="another-lesson">
+            <li>Вища математика</li>
+            <li>Англійська</li>
+            <li>Філософія</li>
+            <li>КДС</li>
+          </ol>
+        </li>
+      </ul>
+    </div>
+
+    <table class="students-table" width="400" border="1">
+      <thead>
+        <tr>
+          <td rowspan="2">Одногрупники</td>
+          <td colspan="3">Відвідування</td>
+        </tr>
+        <tr>
+          <td>C#</td>
+          <td>HTML</td>
+          <td>Вища математика</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Саша</td>
+          <td>5</td>
+          <td>2</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>Таня</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>Сережа</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
