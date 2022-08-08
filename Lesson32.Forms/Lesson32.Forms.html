@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      form {
+        border: 4px double black;
+        width: 300px;
+        padding: 15px;
+      }
+
+      .field {
+        clear: both;
+        text-align: right;
+        line-height: 25px;
+      }
+
+      label {
+        float: left;
+        padding-right: 10px;
+      }
+
+      .main {
+        float: left;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form>
+      <h2>Хочу підписатися!</h2>
+      <p>
+        Після вашої згоди на підписку вам будуть надходити повідомлення на пошту
+        і телефон
+      </p>
+      <div class="all">
+        <div class="field">
+          <label for="first">Ваше ім'я</label>
+          <input type="text" id="first" placeholder="ім'я" />
+        </div>
+        <div class="field">
+          <label for="second">Email</label>
+          <input type="email" id="second" placeholder="email@gmail.com" />
+        </div>
+        <div class="field">
+          <label for="third">Телефон</label>
+          <input
+            type="tel"
+            id="third"
+            placeholder="380xxxxxxxxx"
+            pattern="380\d{9}"
+          />
+        </div>
+      </div>
+      <p>Хочу отримувати повідомлення:</p>
+      <p>
+        <input type="checkbox" /> На пошту<br />
+        <input type="checkbox" /> На телефон
+      </p>
+      <input type="submit" placeholder="Підписатися" />
+    </form>
+  </body>
+</html>
