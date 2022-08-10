@@ -5,20 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Lesson36.DataAccess.Repositories
 {
-    public interface ICarRepository
-    {
-        Task<ICollection<Car>> GetAllAsync();
-        Task<Car> GetByIdAsync(int id);
-        Task AddAsync(Car car);
-        Task UpdateAsync(Car car);
-        Task DeleteAsync(Car car);
-    }
-
-    public class CarRepository : ICarRepository
+    public class CarRepositoryCopy : ICarRepository
     {
         private readonly LessonDataContext _context;
 
-        public CarRepository(LessonDataContext context)
+        public CarRepositoryCopy(LessonDataContext context)
         {
             this._context = context;
         }
@@ -30,7 +21,11 @@ namespace Lesson36.DataAccess.Repositories
 
         public async Task<Car> GetByIdAsync(int id)
         {
-            return await this._context.Cars.FirstOrDefaultAsync(x => x.Id == id);
+            return await Task.FromResult(new Car
+            {
+                Model = "my fk car",
+                Manufacturer = "сам вдома склепав"
+            });
         }
 
         public async Task AddAsync(Car car)

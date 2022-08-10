@@ -1,7 +1,9 @@
-namespace Lesson36.Di.Models
+namespace Lesson36.Entities
 {
-    public class CarModel
+    public class Car
     {
+        public int Id { get; set; }
+
         public string Manufacturer { get; set; }
 
         public string Model { get; set; }

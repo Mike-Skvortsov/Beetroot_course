@@ -422,3 +422,19 @@ FodyWeavers.xsd
 # Additional files built by Visual Studio
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio,visualstudiocode
+Lesson21.Linq/__MACOSX/._LinqLesson
+Lesson21.Linq/__MACOSX/LinqLesson/._.DS_Store
+Lesson21.Linq/__MACOSX/LinqLesson/._.idea
+Lesson21.Linq/__MACOSX/LinqLesson/._LinqLesson
+Lesson21.Linq/__MACOSX/LinqLesson/._LinqLesson.sln
+Lesson21.Linq/__MACOSX/LinqLesson/LinqLesson/._data.json
+Lesson21.Linq/__MACOSX/LinqLesson/LinqLesson/._LinqLesson.csproj
+Lesson21.Linq/__MACOSX/LinqLesson/LinqLesson/._Person.cs
+Lesson21.Linq/__MACOSX/LinqLesson/LinqLesson/._Program.cs
+Lesson.29.EF/SQLQuery1.sql
+Lesson14.Interface/Lesson.14.Interface.sln
+Lesson14.Interface/Lesson.14.Interface/Lesson.14.Interface.csproj
+Lesson14.Interface/Lesson.14.Interface/Program.cs
+Lesson17.Collection/Lesson17.Collection/Topic.cs
+Lesson17.Collection/Lesson17.Collection/Vote.cs
+Homework30.EF/Homework30.EF.sln
